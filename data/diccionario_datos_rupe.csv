@@ -1,0 +1,8 @@
+Nombre del campo;Descripción;Tipo de datos
+pais_prov;País del proveedor;Texto
+identificacion_prov;Identificación del proveedor;Texto
+denominacion_social_prov;Denominación social del proveedor;Texto
+domicilio_fiscal;Domicilio fiscal del proveedor;Texto
+localidad_prov;Localidad del proveedor;Texto
+departamento_prov;Departamento del proveedor;Texto
+estado_prov;Estado en que se encuentra el registro del proveedor en RUPE;Texto
