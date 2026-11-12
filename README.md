@@ -12,7 +12,7 @@ nacho-personalisimo/
 ├── scripts/         <- mi código en Python
 ├── graficos/        <- los gráficos que salen de los scripts
 ├── material/        <- material de la profe (slides y guías)
-│   ├── clase02/ ... clase09/
+│   ├── clase02/ ... clase10/
 │   └── guias/
 └── entregas/        <- respuestas entregadas
 ```
@@ -217,6 +217,37 @@ algunas estaciones y el PM2.5 en todas. Separé NO2 y PM2.5 como dos fuentes y l
 Gráficos: `graficos/clase09_*.png`
 
 **Material:** `material/clase09/`
+
+### Clase 10 — ¿Se ve el tránsito en la calidad del aire?
+
+**Qué vimos:** una investigación paso a paso con el conteo vehicular, el NO2 y el PM2.5
+de junio de 2024: dónde se mide y qué estación elegir; mirar una semana; el día típico;
+la correlación "cruda"; sacar el ciclo diario (desvíos respecto de lo habitual de cada
+hora); correlación con el tránsito de *k* horas antes (rezagos); comparar con el azar
+corriendo el tránsito días enteros; y un modelo simple: *lo habitual de la hora + lo que
+agrega el tránsito*.
+
+**Lo que hice:** `scripts/clase10_transito_y_aire.py`. Los pasos de la clase, más simples,
+con la tabla por hora de Tres Cruces (`data/transito_aire_junio2024.csv`). Resultados:
+
+| | NO2 | PM2.5 |
+|---|---|---|
+| Correlación cruda con el tránsito | 0,59 | −0,02 |
+| Correlación sin el ciclo diario | 0,20 | −0,02 |
+| Mejor rezago | 2 h (r = 0,23) | 13 h (r = 0,18) |
+| R² solo lo habitual de la hora | 0,47 | 0,19 |
+| R² habitual + tránsito | 0,50 | 0,22 |
+
+- Casi toda la correlación cruda del NO2 era el ritmo del día, pero queda algo: con el
+  tránsito corrido al azar, ninguna de las 25 corridas llega a la correlación real.
+- El NO2 responde enseguida al tránsito (sale del escape y se va rápido); el PM2.5 tarda
+  como medio día (se va juntando), por eso su pico es de noche.
+- Lo que el modelo no explica es lo que no pusimos: viento, lluvia, temperatura y otras
+  fuentes.
+
+Gráficos: `graficos/clase10_*.png`
+
+**Material:** `material/clase10/`
 
 ### Clase 12 (13/10) — Tránsito y calidad del aire
 
