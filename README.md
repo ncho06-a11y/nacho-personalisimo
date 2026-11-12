@@ -12,7 +12,7 @@ nacho-personalisimo/
 ├── scripts/         <- mi código en Python
 ├── graficos/        <- los gráficos que salen de los scripts
 ├── material/        <- material de la profe (slides y guías)
-│   ├── clase02/ ... clase08/
+│   ├── clase02/ ... clase09/
 │   └── guias/
 └── entregas/        <- respuestas entregadas
 ```
@@ -159,6 +159,8 @@ el umbral de la OMS, rachas y patrones de faltantes (explícitos e implícitos).
 **Lo que hice:** `scripts/ozono_carga_y_transformacion.py`
 Gráfico: `graficos/ozono_figure_1.png`
 
+**Material:** `material/clase07/`
+
 > Nota: este script necesita `data/o3_01_2024_04_2024.csv`, que no está subido al
 > repositorio (es pesado). Hay que bajarlo y ponerlo en `data/` para correrlo.
 
@@ -182,6 +184,39 @@ Gráficos: `graficos/clase08_ozono_original.png`, `graficos/clase08_ozono_correg
 `graficos/clase08_residuos_por_tipo.png`
 
 **Material:** `material/clase08/`
+
+### Clase 9 — Unión de fuentes y gráficos por grupo
+
+**Qué vimos:** convertir en función un bloque que se repite (cargar y limpiar cada
+archivo); unir dos fuentes con una clave (estación + hora) y ver qué se pierde con un
+*inner join* frente a un *left join*; un color por grupo con leyenda; perfil por hora del
+día; boxplot; dispersión entre dos variables y correlación; cortar la hora en franjas y
+mirar la misma pregunta en varios paneles.
+
+**Lo que hice:** `scripts/clase09_union_y_graficos_por_grupo.py`. En clase se usó ozono
+y PM2.5 de enero a abril, archivos que no tengo en el repo. Lo hice con
+`transito_aire_junio2024.csv`, que tiene el mismo problema: el NO2 se mide solo en
+algunas estaciones y el PM2.5 en todas. Separé NO2 y PM2.5 como dos fuentes y las uní.
+
+**Preguntas para la bitácora:**
+1. *¿Qué estaciones quedaron fuera de la unión y por qué?* Museo Romántico, porque ahí
+   no se mide NO2 y no tiene filas para aparear. Quedan 946 filas, todas las de NO2; se
+   pierden 744 de PM2.5 (las 576 de Museo Romántico y horas de las otras dos estaciones
+   con PM2.5 pero sin NO2). No desaparecen: siguen en su tabla.
+2. *¿Y con left join?* Se queda con todas las filas de la tabla de la izquierda. Con NO2
+   a la izquierda quedan 946 y ninguna con PM2.5 vacío. Con PM2.5 a la izquierda quedan
+   1690 y 744 tienen el NO2 vacío (NaN): son las que no encontraron pareja.
+3. *¿Qué cambia con los cortes (-1, 6, 12, 19, 23)?* Cambia cuántas horas hay en cada
+   panel y la correlación: la noche pasa a tener 4 horas y su r sube de 0,60 a 0,72,
+   porque las 18 y 19 (mucho tránsito) pasan a la tarde. Lo que se ve depende de dónde
+   se corta.
+4. *Dos tablas que se puedan unir y su clave:* el conteo de tránsito y las mediciones de
+   aire, por estación + hora. Las pesadas de residuos se podrían unir con una tabla de
+   circuitos por `nomenclatura_circuito`.
+
+Gráficos: `graficos/clase09_*.png`
+
+**Material:** `material/clase09/`
 
 ### Clase 12 (13/10) — Tránsito y calidad del aire
 
