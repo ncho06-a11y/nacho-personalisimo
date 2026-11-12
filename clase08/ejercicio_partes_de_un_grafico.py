@@ -2,7 +2,7 @@
 # Clase 8 - Visualizacion basica: las partes de un grafico
 # Ejercicio: ver que esta mal en el grafico del ozono de la clase 7 y corregirlo.
 # Despues hago un grafico nuevo con otro dataset aplicando lo mismo.
-# Correr desde la carpeta del proyecto: python scripts/clase08_partes_de_un_grafico.py
+# Correr desde la carpeta del proyecto: python clase08/ejercicio_partes_de_un_grafico.py
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -21,7 +21,7 @@ ax.scatter(ozono_mes["mes"], ozono_mes["o3_medio_mes"], color="red", s=60, zorde
 ax.set_title("Concentración de Ozono en el ambiente, por mes, 2024")
 ax.set_xlabel("Fecha")
 ax.set_ylabel("Valores")
-fig.savefig("graficos/clase08_ozono_original.png")
+fig.savefig("clase08/ozono_original.png")
 plt.close(fig)
 
 # %%
@@ -59,7 +59,7 @@ ax.spines["right"].set_visible(False)
 ax.grid(axis="y", color="#e5e5e5")
 fig.text(0.99, 0.01, "Fuente: datos de ozono de la clase 7 (Montevideo).",
          ha="right", fontsize=8, color="gray")
-fig.savefig("graficos/clase08_ozono_corregido.png")
+fig.savefig("clase08/ozono_corregido.png")
 plt.close(fig)
 
 # %%
@@ -85,7 +85,7 @@ ax.spines["right"].set_visible(False)
 fig.text(0.99, 0.01, "Fuente: pesadas en la estación de transferencia, noviembre-diciembre 2023.",
          ha="right", fontsize=8, color="gray")
 fig.tight_layout()
-fig.savefig("graficos/clase08_residuos_por_tipo.png")
+fig.savefig("clase08/residuos_por_tipo.png")
 plt.close(fig)
 
-print("\nGraficos guardados en graficos/ (clase08_*.png)")
+print("\nGraficos guardados en clase08/")

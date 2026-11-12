@@ -22,7 +22,7 @@ def raiz_proyecto(marcadores=(".git", "_quarto.yml", ".here")) -> Path:
 
 RAIZ = raiz_proyecto()
 DATOS = RAIZ / "data"
-GRAFICOS = RAIZ / "graficos"
+GRAFICOS = RAIZ / "clase07"
 GRAFICOS.mkdir(exist_ok=True)
 
 

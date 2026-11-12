@@ -6,7 +6,7 @@
 # (data/transito_aire_junio2024.csv), asi no hace falta cargar los archivos por minuto
 # ni calcular distancias. Al final de cada paso anoto que vi.
 #
-# Correr desde la carpeta del proyecto: python scripts/clase10_transito_y_aire.py
+# Correr desde la carpeta del proyecto: python clase10/ejercicio_transito_y_aire.py
 
 import numpy as np
 import pandas as pd
@@ -34,7 +34,7 @@ axes[2].plot(semana.index, semana["pm25"], color="orange")
 axes[2].set_ylabel("PM2.5 (µg/m³)")
 axes[0].set_title("Una semana en Tres Cruces, junio 2024", loc="left")
 fig.tight_layout()
-fig.savefig("graficos/clase10_semana.png")
+fig.savefig("clase10/semana.png")
 plt.close(fig)
 # Lo que vi: el transito sube de dia y baja de noche. El NO2 parece seguirlo.
 # El PM2.5 tiene subidas que no coinciden con el transito.
@@ -56,7 +56,7 @@ ax.set_title("Día típico de lunes a viernes (1 = su promedio)", loc="left")
 ax.set_xlabel("Hora del día")
 ax.set_ylabel("Relativo a su promedio")
 ax.legend()
-fig.savefig("graficos/clase10_perfil_horario.png")
+fig.savefig("clase10/perfil_horario.png")
 plt.close(fig)
 # Lo que vi: el NO2 tiene picos en las mismas horas que el transito (mañana y tarde).
 # El PM2.5 tiene su pico de noche, cuando el transito ya bajo.
@@ -99,7 +99,7 @@ ax.set_title("Contaminante ahora vs tránsito de k horas antes (desvíos)", loc=
 ax.set_xlabel("k (horas antes)")
 ax.set_ylabel("Correlación")
 ax.legend()
-fig.savefig("graficos/clase10_rezagos.png")
+fig.savefig("clase10/rezagos.png")
 plt.close(fig)
 
 k_no2 = int(np.nanargmax(r_k_no2))
@@ -130,7 +130,7 @@ ax.axvline(real, color="red", linewidth=2, label=f"Real: r = {real:.2f}")
 ax.set_title("NO2: ¿la relación supera a la casualidad?", loc="left")
 ax.set_xlabel("Mejor correlación (rezagos 0 a 3 h)")
 ax.legend()
-fig.savefig("graficos/clase10_azar.png")
+fig.savefig("clase10/azar.png")
 plt.close(fig)
 # Lo que vi: si la linea roja queda a la derecha de todas las barras, la relacion
 # del NO2 con el transito no se explica por casualidad.

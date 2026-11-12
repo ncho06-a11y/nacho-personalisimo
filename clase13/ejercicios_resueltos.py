@@ -12,7 +12,7 @@
 #
 # CÓMO SE USA ESTE ARCHIVO
 #   Correr desde la raíz del proyecto (nacho-personalisimo). Los datos están en
-#   data/ y los gráficos se guardan en graficos/.
+#   data/ y los gráficos se guardan en clase13/.
 #   El archivo está dividido en celdas con #%%. En VS Code cada celda se
 #   corre con Shift + Enter, de arriba hacia abajo.
 #
@@ -36,7 +36,7 @@ pd.set_option("display.max_columns", None)
 pd.set_option("display.width", 200)
 
 RUTA = "data/transito_aire_junio2024.csv"
-GRAFICOS = Path("graficos")
+GRAFICOS = Path("clase13")
 GRAFICOS.mkdir(exist_ok=True)
 
 COL_TRANSITO = "#2E86AB"
@@ -145,7 +145,7 @@ ax.bar(por_hora["h"], por_hora["transito"], color=colores)
 ax.set_title("Tránsito promedio por hora del día, Tres Cruces, lunes a viernes")
 ax.set_xlabel("Hora del día (en color: hora pico)")
 ax.set_ylabel("Vehículos por hora")
-plt.savefig(GRAFICOS / "clase13_ej2_hora_pico_original.png", dpi=150)
+plt.savefig(GRAFICOS / "ej2_hora_pico_original.png", dpi=150)
 plt.show()
 
 # 1. Mirar el gráfico: ¿las barras oscuras son las más altas?
@@ -175,7 +175,7 @@ ax.bar(por_hora["h"], por_hora["transito"], color=colores)
 ax.set_title("Tránsito promedio por hora del día, Tres Cruces, lunes a viernes")
 ax.set_xlabel("Hora del día (en color: tránsito alto)")
 ax.set_ylabel("Vehículos por hora")
-plt.savefig(GRAFICOS / "clase13_ej2_transito_alto.png", dpi=150)
+plt.savefig(GRAFICOS / "ej2_transito_alto.png", dpi=150)
 plt.show()
 # Ojo: en el diccionario de map() también hay que cambiar el nombre de la
 # categoría. Si queda "hora pico", ninguna barra recibe el color oscuro.
@@ -197,7 +197,7 @@ for ax, est in zip(axes, ESTACIONES):
 axes[0].set_ylabel("Tránsito relativo (1 = media de la estación)")
 fig.suptitle("Tránsito por franja horaria, relativo a la media de la estación")
 fig.tight_layout()     # acomoda los títulos para que no se pisen
-plt.savefig(GRAFICOS / "clase13_ej3_transito_por_franja.png", dpi=150)
+plt.savefig(GRAFICOS / "ej3_transito_por_franja.png", dpi=150)
 plt.show()
 
 # La tabla por_franja también tiene el promedio de pm25.
@@ -217,7 +217,7 @@ for ax, est in zip(axes, ESTACIONES):
 axes[0].set_ylabel("PM2.5 (µg/m³)")
 fig.suptitle("PM2.5 promedio por franja horaria")
 fig.tight_layout()
-plt.savefig(GRAFICOS / "clase13_ej3_pm25_por_franja.png", dpi=150)
+plt.savefig(GRAFICOS / "ej3_pm25_por_franja.png", dpi=150)
 plt.show()
 
 # 3. El tránsito es máximo de tarde; el PM2.5 es máximo de noche (en Tres
@@ -307,7 +307,7 @@ ax.set_title("Tránsito y NO2 en Tres Cruces, por franja horaria")
 ax.set_xlabel("Miles de vehículos por hora")
 ax.set_ylabel("NO2 (µg/m³)")
 ax.legend()
-plt.savefig(GRAFICOS / "clase13_ej6_transito_no2_por_franja.png", dpi=150)
+plt.savefig(GRAFICOS / "ej6_transito_no2_por_franja.png", dpi=150)
 plt.show()
 # Qué vemos: cada franja tiene su recta, y no son paralelas.
 
@@ -371,7 +371,7 @@ ax.set_title("Tránsito y NO2 en Tres Cruces, de tarde, por tipo de día")
 ax.set_xlabel("Miles de vehículos por hora")
 ax.set_ylabel("NO2 (µg/m³)")
 ax.legend()
-plt.savefig(GRAFICOS / "clase13_ej7_tarde_por_tipo_dia.png", dpi=150)
+plt.savefig(GRAFICOS / "ej7_tarde_por_tipo_dia.png", dpi=150)
 plt.show()
 
 print(tarde.groupby("tipo_dia")[["transito", "no2"]].agg(["count", "mean"]).round(1))

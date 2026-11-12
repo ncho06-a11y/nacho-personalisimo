@@ -3,18 +3,18 @@
 #
 # Antes de correrlo:
 #   1. Sacar una clave gratis en https://aistudio.google.com ("Get API key")
-#   2. Guardarla en data/clase11/clave_gemini.txt
+#   2. Guardarla en clase11/clave_gemini.txt
 #      (ese archivo NO se sube a GitHub: esta en el .gitignore)
-#   3. La foto del ticket esta en data/clase11/ticket.jpg
+#   3. La foto del ticket esta en clase11/ticket.jpg
 #   4. pip install requests pandas
 #
-# Correr desde la carpeta del proyecto: python scripts/clase11_leer_ticket.py
+# Correr desde la carpeta del proyecto: python clase11/ejercicio_leer_ticket.py
 
 import base64
 import requests
 import pandas as pd
 
-RUTA = "data/clase11/"
+RUTA = "clase11/"
 CLAVE = open(RUTA + "clave_gemini.txt").read().strip()
 FOTO = "ticket.jpg"
 TIPO = "image/jpeg"

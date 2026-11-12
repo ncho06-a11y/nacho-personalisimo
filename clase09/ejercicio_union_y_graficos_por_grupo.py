@@ -8,7 +8,7 @@
 # el NO2 se mide solo en algunas estaciones y el PM2.5 en todas.
 # Separo esa tabla en dos fuentes (una de NO2 y otra de PM2.5) y las vuelvo a unir.
 #
-# Correr desde la carpeta del proyecto: python scripts/clase09_union_y_graficos_por_grupo.py
+# Correr desde la carpeta del proyecto: python clase09/ejercicio_union_y_graficos_por_grupo.py
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -77,7 +77,7 @@ ax2.set_ylabel("PM2.5 (µg/m³)")
 ax1.legend(title="Estación")
 ax2.legend(title="Estación")
 fig.tight_layout()
-fig.savefig("graficos/clase09_series_no2_pm25.png")
+fig.savefig("clase09/series_no2_pm25.png")
 plt.close(fig)
 
 # %%
@@ -97,7 +97,7 @@ for ax in (ax1, ax2):
     ax.legend()
 fig.suptitle("Promedio por hora del día, junio de 2024")
 fig.tight_layout()
-fig.savefig("graficos/clase09_perfil_horario.png")
+fig.savefig("clase09/perfil_horario.png")
 plt.close(fig)
 
 # %%
@@ -111,7 +111,7 @@ ax.set_xticks(range(1, len(estaciones) + 1))
 ax.set_xticklabels(estaciones)
 ax.set_title("PM2.5: distribución de la media diaria por estación, junio 2024", loc="left")
 ax.set_ylabel("PM2.5 (µg/m³)")
-fig.savefig("graficos/clase09_boxplot_pm25.png")
+fig.savefig("clase09/boxplot_pm25.png")
 plt.close(fig)
 
 # %%
@@ -125,7 +125,7 @@ ax.set_xscale("log")
 ax.set_title(f"NO2 vs PM2.5, medias horarias (r = {r_global:.2f})", loc="left")
 ax.set_xlabel("PM2.5 (µg/m³, escala log)")
 ax.set_ylabel("NO2 (µg/m³)")
-fig.savefig("graficos/clase09_dispersion.png")
+fig.savefig("clase09/dispersion.png")
 plt.close(fig)
 
 # %%
@@ -150,13 +150,13 @@ def paneles_por_franja(cortes, nombres, archivo):
 print("\nCortes de la clase (-1, 5, 11, 17, 23):")
 paneles_por_franja([-1, 5, 11, 17, 23],
                    ["madrugada (0-5)", "mañana (6-11)", "tarde (12-17)", "noche (18-23)"],
-                   "graficos/clase09_paneles_franjas.png")
+                   "clase09/paneles_franjas.png")
 
 # PREGUNTA 3: cambiar los cortes a (-1, 6, 12, 19, 23)
 print("\nCortes nuevos (-1, 6, 12, 19, 23):")
 paneles_por_franja([-1, 6, 12, 19, 23],
                    ["madrugada (0-6)", "mañana (7-12)", "tarde (13-19)", "noche (20-23)"],
-                   "graficos/clase09_paneles_franjas_cortes_nuevos.png")
+                   "clase09/paneles_franjas_cortes_nuevos.png")
 
 # Respuesta: cambian los n de cada panel (la noche queda de 4 horas, n = 160, y la tarde
 # de 7, n = 279) y cambian los r. Lo que mas cambia es la noche: pasa de r = 0.60 a
@@ -166,7 +166,7 @@ paneles_por_franja([-1, 6, 12, 19, 23],
 
 # %%
 # 9. Guardar la tabla unida
-aire.to_csv("data/aire_horario_no2_pm25.csv", index=False)
+aire.to_csv("clase09/aire_horario_no2_pm25.csv", index=False)
 
 # %%
 # PREGUNTA 4: con los datos del equipo, dos tablas que se puedan unir y su clave

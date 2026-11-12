@@ -1,7 +1,7 @@
 # %%
 # Clase 2 - Generacion de datos (caja negra / DGP)
 # Ejercicio: armar el dataframe de la caja negra y hacer datos sinteticos
-# Correr desde la carpeta del proyecto: python scripts/clase02_datos_sinteticos.py
+# Correr desde la carpeta del proyecto: python clase02/ejercicio_datos_sinteticos.py
 
 import pandas as pd
 import numpy as np
@@ -89,8 +89,8 @@ plt.xlabel("peso estimado (g)")
 plt.ylabel("densidad")
 plt.title("Pesos reales vs sinteticos")
 plt.legend()
-plt.savefig("graficos/clase02_pesos_real_vs_sintetico.png")
-print("\ngrafico guardado en graficos/clase02_pesos_real_vs_sintetico.png")
+plt.savefig("clase02/pesos_real_vs_sintetico.png")
+print("\ngrafico guardado en clase02/pesos_real_vs_sintetico.png")
 
 # %%
 # 7. Conclusion (lo que vi)

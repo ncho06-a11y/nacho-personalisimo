@@ -2,7 +2,7 @@
 # Clase 6 - Diseño de encuestas
 # Armo la tabla que sale de mi cuestionario de la cafeteria (con respuestas inventadas)
 # y declaro los tipos como dice el libro de codigos.
-# Correr desde la carpeta del proyecto: python scripts/clase06_encuesta_cafeteria.py
+# Correr desde la carpeta del proyecto: python clase06/ejercicio_encuesta_cafeteria.py
 
 import pandas as pd
 import numpy as np

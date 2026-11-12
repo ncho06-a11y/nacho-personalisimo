@@ -1,7 +1,7 @@
 # %%
 # Clase 5 - Seudocodigo
 # Ejercicio: pasar de seudocodigo a codigo en Python
-# Correr desde la carpeta del proyecto: python scripts/clase05_seudocodigo.py
+# Correr desde la carpeta del proyecto: python clase05/ejercicio_seudocodigo.py
 
 import pandas as pd
 from pathlib import Path
