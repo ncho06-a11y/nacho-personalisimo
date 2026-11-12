@@ -12,7 +12,7 @@ nacho-personalisimo/
 ├── scripts/         <- mi código en Python
 ├── graficos/        <- los gráficos que salen de los scripts
 ├── material/        <- material de la profe (slides y guías)
-│   ├── clase02/ ... clase06/
+│   ├── clase02/ ... clase08/
 │   └── guias/
 └── entregas/        <- respuestas entregadas
 ```
@@ -161,6 +161,27 @@ Gráfico: `graficos/ozono_figure_1.png`
 
 > Nota: este script necesita `data/o3_01_2024_04_2024.csv`, que no está subido al
 > repositorio (es pesado). Hay que bajarlo y ponerlo en `data/` para correrlo.
+
+### Clase 8 — Visualización básica: las partes de un gráfico
+
+**Qué vimos:** las partes de un gráfico (datos, geometría —líneas, puntos, barras—,
+ejes y escalas, etiquetas, título y fuente) usando de ejemplo el gráfico del ozono de la
+clase 7, y cómo corregirlo con `matplotlib`.
+
+**Lo que hice:** `scripts/clase08_partes_de_un_grafico.py`
+- Rehice el gráfico original y anoté qué está mal: el eje x muestra 1.0, 1.5, 2.0… en vez
+  de meses; "Fecha" y "Valores" no dicen qué se mide ni en qué unidad; el eje y empieza en
+  24 y exagera la caída; no tiene fuente; el título no dice que es un promedio.
+- Mi versión corregida: meses con nombre, eje y desde 0, unidad (µg/m³), valor en cada
+  punto, título claro y fuente.
+- Apliqué lo mismo a otro dataset: toneladas por tipo de residuo en la estación de
+  transferencia (barras horizontales porque los nombres son largos). Casi todo, unas
+  7.400 toneladas, es residuo domiciliario.
+
+Gráficos: `graficos/clase08_ozono_original.png`, `graficos/clase08_ozono_corregido.png`,
+`graficos/clase08_residuos_por_tipo.png`
+
+**Material:** `material/clase08/`
 
 ### Clase 12 (13/10) — Tránsito y calidad del aire
 
