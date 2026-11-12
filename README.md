@@ -12,7 +12,7 @@ nacho-personalisimo/
 ├── scripts/         <- mi código en Python
 ├── graficos/        <- los gráficos que salen de los scripts
 ├── material/        <- material de la profe (slides y guías)
-│   ├── clase02/ ... clase05/
+│   ├── clase02/ ... clase06/
 │   └── guias/
 └── entregas/        <- respuestas entregadas
 ```
@@ -113,6 +113,41 @@ Python. Ejemplo: leer un CSV en UTF-8 y, si falla, reintentar con latin-1.
 - Ejercicio 3: un seudocódigo propio (contar días calurosos y sacar el promedio) y su código.
 
 **Material:** `material/clase05/`
+
+### Clase 6 — Diseño de encuestas
+
+**Qué vimos:** cuándo conviene hacer una encuesta; fuentes de datos (preferencias
+declaradas, reveladas y huella digital); la regla de **diseñar la tabla antes que el
+formulario**; operacionalización (concepto → dimensión → indicador → pregunta → variable);
+niveles de medición (nominal, ordinal, intervalo, razón); validez y confiabilidad;
+fuentes de error (cobertura, muestreo, no respuesta, medición); tipos de pregunta y qué
+columnas generan (la selección múltiple da una binaria por opción); redacción (una idea
+por pregunta, lenguaje neutro, período de referencia, categorías exhaustivas y
+excluyentes); preguntas filtro y faltantes estructurales; libro de códigos; y datos
+personales según la Ley 18.331.
+
+**Lo que hice:**
+- `entregas/clase06_encuestas.md`:
+  - Ejercicio 1: el cuestionario completo para la cafetería de la facultad (título,
+    introducción, consentimiento, instrucciones, preguntas y cierre). 7 preguntas →
+    13 columnas, con filtro después de la P1.
+  - Ejercicio 2 (para la bitácora): las 6 preguntas con problemas. Para cada una, el
+    problema, la pregunta arreglada y qué variable genera:
+
+    | # | Problema | Variable que genera |
+    |---|---|---|
+    | 1 | Pregunta dos cosas a la vez | 2 ordinales (escala 1–5) |
+    | 2 | Induce la respuesta y tiene negación | 1 cuantitativa (o ordinal si es por tramos) |
+    | 3 | No tiene período de referencia | 1 cuantitativa |
+    | 4 | Tramos que se pisan y no cubren todo | 1 ordinal |
+    | 5 | Selección múltiple disfrazada ("Ambos") | 3 binarias |
+    | 6 | Sensible, exacta y al principio | 1 ordinal (por tramos, al final) |
+
+- `scripts/clase06_encuesta_cafeteria.py` — armo la tabla que sale de mi cuestionario con
+  respuestas inventadas, declaro los tipos según el libro de códigos y muestro que hay dos
+  tipos de faltantes (por el filtro y por no respuesta) que en la tabla se ven igual.
+
+**Material:** `material/clase06/`
 
 ### Clase 7 (17/09) — Carga de datos, rutas y transformación: ozono en Montevideo
 
