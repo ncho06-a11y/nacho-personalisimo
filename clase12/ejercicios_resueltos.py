@@ -1,5 +1,5 @@
 # =============================================================================
-# Clase 13. Tránsito y calidad del aire, junio de 2024 — Ejercicios resueltos
+# Clase 12. Tránsito y calidad del aire, junio de 2024 — Ejercicios resueltos
 # Versión en Python (pandas + matplotlib + statsmodels)
 # =============================================================================
 #
@@ -12,7 +12,7 @@
 #
 # CÓMO SE USA ESTE ARCHIVO
 #   Correr desde la raíz del proyecto (nacho-personalisimo). Los datos están en
-#   data/ y los gráficos se guardan en clase13/.
+#   data/ y los gráficos se guardan en clase12/.
 #   El archivo está dividido en celdas con #%%. En VS Code cada celda se
 #   corre con Shift + Enter, de arriba hacia abajo.
 #
@@ -36,7 +36,7 @@ pd.set_option("display.max_columns", None)
 pd.set_option("display.width", 200)
 
 RUTA = "data/transito_aire_junio2024.csv"
-GRAFICOS = Path("clase13")
+GRAFICOS = Path("clase12")
 GRAFICOS.mkdir(exist_ok=True)
 
 COL_TRANSITO = "#2E86AB"
