@@ -1,0 +1,4 @@
+# claves de APIs: no se suben a GitHub
+clave_*.txt
+*.key
+.env

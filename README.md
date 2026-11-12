@@ -12,7 +12,7 @@ nacho-personalisimo/
 ├── scripts/         <- mi código en Python
 ├── graficos/        <- los gráficos que salen de los scripts
 ├── material/        <- material de la profe (slides y guías)
-│   ├── clase02/ ... clase10/
+│   ├── clase02/ ... clase13/
 │   └── guias/
 └── entregas/        <- respuestas entregadas
 ```
@@ -249,14 +249,55 @@ Gráficos: `graficos/clase10_*.png`
 
 **Material:** `material/clase10/`
 
-### Clase 12 (13/10) — Tránsito y calidad del aire
+### Clase 11 — Leer un ticket con IA (APIs)
 
-**Qué vimos:** crear variables nuevas (hora, tipo de día, franja horaria, tránsito
-relativo, logaritmos), faltantes que se heredan, promedios por grupo y regresión
-lineal con `statsmodels`.
+**Qué vimos:** cómo usar un modelo de IA desde código mandando una solicitud HTTP a una
+API (Gemini o Groq): la foto se pasa a base64 (texto) porque el JSON solo admite texto,
+se arma el cuerpo de la solicitud con la instrucción y la imagen, se envía con método
+POST y la clave en un encabezado, se mira el código de estado (200 = bien; 429 = cuota;
+503 = servidor saturado) y se lee la respuesta. Los tokens de entrada y de salida. La
+clave es privada y **no se sube a GitHub**.
 
-**Lo que hice:** `scripts/clase12_ejercicios.py` — los 7 ejercicios resueltos con
-las respuestas comentadas en el código.
-Gráficos: `graficos/clase12_*.png`
+**Lo que hice:** `scripts/clase11_leer_ticket.py`
+- Manda la foto `data/clase11/ticket.jpg` a Gemini y guarda la respuesta como
+  `data/clase11/ticket_gemini.csv`.
+- Le agregué un control: compara la suma de los ítems con el TOTAL impreso ($50,00) y
+  con `data/clase11/ticket_control.csv` (los dos ítems del ticket: leche $18 y pan $32).
+  Hay que fijarse que no tome como ítems el "Desc. Ley 19210" (−1,64) ni el "Pago total"
+  (48,36).
+- Agregué un `.gitignore` para que el archivo de la clave (`clave_*.txt`) nunca se suba.
+
+Para correrlo hay que poner la clave propia en `data/clase11/clave_gemini.txt`.
+
+**Material:** `material/clase11/` (versiones en Python y R, para Gemini y para Groq)
+
+### Clase 13 — Tránsito y calidad del aire: variables nuevas y modelos
+
+**Qué vimos:** crear variables nuevas a partir de la hora (hora del día, tipo de día,
+hora pico, franja horaria), tránsito relativo y logaritmos; faltantes que se heredan;
+promedios por grupo; y regresión lineal con `statsmodels`: agregar variables al modelo,
+variables binarias e interacciones.
+
+**Lo que hice:** `scripts/clase13_ejercicios.py` — los 7 ejercicios resueltos, con las
+respuestas comentadas en el código:
+1. **Faltantes:** de las variables nuevas solo `log_pm25` tiene faltantes, los mismos que
+   `pm25` (0 en Curva de Maroñas, 144 en Museo Romántico y 326 en Tres Cruces): una
+   variable calculada hereda los faltantes de la original.
+2. **Hora pico:** está mal definida. Las 7, 18 y 19 tienen menos tránsito que las horas de
+   10 a 16; el tránsito es alto todo el día. Hice una variable nueva con las horas de 8 a 17.
+3. **PM2.5 por franja:** el tránsito es máximo de tarde y el PM2.5 de noche (en Tres Cruces
+   31,9 de noche contra 17,2 de tarde). No es la misma franja.
+4. **Agregar la franja al modelo:** el R² pasa de 0,47 a 0,49; mejora poco con tres
+   coeficientes más.
+5. **Binaria "noche":** la noche suma 3,8 µg/m³ de NO2 a igual tránsito y PM2.5, y con esa
+   sola variable el R² es 0,48, casi igual que con las tres franjas.
+6. **Interacciones:** la madrugada tiene la recta más empinada (unos 2,9 µg/m³ por cada mil
+   vehículos por hora, contra 0,5 a 1,1 en las otras franjas).
+7. **La tarde:** los dos grupos son los días de semana y los fines de semana (tránsito y
+   NO2 más bajos el fin de semana). La franja "tarde" mezclaba dos situaciones distintas.
+
+Gráficos: `graficos/clase13_*.png`
 
 **Datos:** `data/transito_aire_junio2024.csv`
+
+**Material:** `material/clase13/` (la consigna de los ejercicios)
